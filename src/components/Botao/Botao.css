@@ -1,0 +1,15 @@
+.botao-form {
+  max-width: 30%;
+  background-color: #6278f7;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 32px;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.botao-form:hover {
+  background-color: #5a6cd5;
+  color: #95ffd4;
+}
