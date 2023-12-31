@@ -1,5 +1,6 @@
 .colaborador {
   width: 280px;
+  position: relative;
 }
 
 .colaborador .cabecalho {
@@ -33,4 +34,16 @@
   font-size: 1.3rem;
   padding-top: 1rem;
   font-weight: lighter;
+}
+
+.deletar {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.deletar:hover {
+  transform: scale(1.2);
 }

@@ -1,18 +1,25 @@
-.campo-texto {
+.campo {
   display: flex;
   flex-direction: column;
   width: auto;
 }
 
-.campo-texto label {
+.campo label {
   font-weight: bold;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
-.campo-texto input {
+.campo input {
   padding: 1.5rem;
   border: none;
   font-size: 1.5rem;
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.campo-color input {
+  padding: 0px;
+  width: 20%;
+  height: 35px;
+  border: 1px solid black;
 }

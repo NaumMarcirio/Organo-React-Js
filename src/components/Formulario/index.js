@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Botao from "../Botao";
-import CampoTexto from "../CampoTexto";
+import Campo from "../Campo";
 import ListaSuspensa from "../ListaSupensa";
 import "./Formulario.css";
 
@@ -9,6 +9,8 @@ const Formulario = (props) => {
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
   const [time, setTime] = useState("");
+  const [nomeTime, setNomeTime] = useState("");
+  const [corTime, setCorTime] = useState("");
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
@@ -23,25 +25,35 @@ const Formulario = (props) => {
     setImagem("");
     setTime("");
   };
+
+  const aoDeletarTime = (event) => {
+    event.preventDefault();
+    props.cadastrarTime({
+      nome: nomeTime,
+      cor: corTime,
+    });
+    setCorTime("");
+    setNomeTime("");
+  };
   return (
     <section className="formulario">
       <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card do colaborador.</h2>
-        <CampoTexto
+        <Campo
           label="Nome"
           placeholder="Digite seu Nome"
           obrigatorio="true"
           valor={nome}
           aoAlterado={(valor) => setNome(valor)}
         />
-        <CampoTexto
+        <Campo
           label="Cargo"
           placeholder="Digite seu Cargo"
           obrigatorio="true"
           valor={cargo}
           aoAlterado={(valor) => setCargo(valor)}
         />
-        <CampoTexto
+        <Campo
           label="Imagem"
           placeholder="Digite o endereço da imagem"
           obrigatorio="false"
@@ -56,6 +68,24 @@ const Formulario = (props) => {
           aoAlterado={(valor) => setTime(valor)}
         />
         <Botao texto="Criar Card" />
+      </form>
+      <form onSubmit={aoDeletarTime}>
+        <h2>Preencha os dados para criar um novo time.</h2>
+        <Campo
+          label="Nome"
+          placeholder="Digite o Nome do Time"
+          obrigatorio
+          valor={nomeTime}
+          aoAlterado={(valor) => setNomeTime(valor)}
+        />
+        <Campo
+          label="Cor"
+          obrigatorio
+          valor={corTime}
+          aoAlterado={(valor) => setCorTime(valor)}
+          type={"color"}
+        />
+        <Botao texto="Criar Time" />
       </form>
     </section>
   );
